@@ -190,3 +190,52 @@ hr {
 .btn-up {
   margin-bottom: 25px;
 }
+
+@media screen and (max-width: 400px) {
+
+  p {
+    margin: 0 10px;
+  }
+
+  .top-container {
+    width: auto;
+  }
+
+  .top-cloud {
+    right: 190px;
+    top: -20px;
+  }
+
+  .bottom-cloud {
+    left: 210px;
+    bottom: 315px;
+  }
+
+  .main-img {
+    padding-top: 45px;
+  }
+
+  .front-end-img {
+    width: 105%;
+    float: none;
+    margin-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .back-end-img {
+    width: 105%;
+    float: none;
+    margin-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .skills h2 {
+    margin-bottom: 0;
+  }
+
+  .skill-row {
+    width: 75%;
+  }
+}
