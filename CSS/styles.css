@@ -41,6 +41,12 @@ hr {
   border: none;
 }
 
+.profile{
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
 .skill-row {
   width: 50%;
   margin: 100px auto;
@@ -126,6 +132,10 @@ hr {
   width: 180px;
 }
 
+.action-btn {
+  font-size: small;
+}
+
 /* Button */
 .btn {
   appearance: button;
@@ -197,6 +207,10 @@ hr {
     margin: 0 10px;
   }
 
+  .profile {
+    width: 95%;
+  }
+
   .top-container {
     width: auto;
   }
@@ -230,6 +244,13 @@ hr {
     padding-top: 0px;
     padding-bottom: 0px;
   }
+
+  .project-img {
+    width: 105%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
 
   .skills h2 {
     margin-bottom: 0;

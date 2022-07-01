@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+  <link rel="stylesheet" type="text/css" href="CSS/monster-slayer.css">
   <link rel="icon" href="CSS/favicon.ico">
   <title>Billy Veillette-Daigle</title>
 </head>
@@ -20,11 +21,11 @@
     <div class="profile">
       <img class="my-profile" src="images/Billy-VD.png" alt="profile-img">
       <h2>Hello.</h2>
-      <p>For the past year I've been studying to become a FullStack Developer. <br>
-        I recently graduated from LeWagon Montreal where I learned about Front-End Development and Back-End as well. <br>
-        Prior to that I've spent multiple years as a Lead Genius in multiple Apple Store accross the Montreal Area. <br>
-        Outside work, I like to brew my own beer, play Hockey and Baseball and some Crossfit. <br>
-        I strongly believe that keeping an active body helps in keeping an active mind and focus. </p>
+      <p>In the last year, I studied to become a full stack developer.I recently graduated from LeWagon Montréal,
+        where I became familiar with Front-End Developement and Back-End as well.
+        Previously, I spent several years as a Lead Genius in several Apple Stores in the Montreal area.
+        Outside of work, I enjoy making my own beer, playing hockey and baseball, and a bit of crossfit.
+        I am a firm believer that keeping an active body helps to keep an active mind and focus.</p>
       <a class="btn btn-up" href="mailto:bvd86@icloud.com">CONTACT ME</a>
     </div>
     <hr>
@@ -34,23 +35,64 @@
         <img class="front-end-img" src="images/frontend.png" alt="frontend-img">
         <h3>Front-End Development</h3>
         <p>From optimizing the user experience to fixing bugs and testing for usability.
-        I can develop and maintain a user interface, implement design on mobile, create tools
-        that improve site interaction regardless of the browser. I am skill in, but not only to,
-        HTML, CSS, JavaScript and Vue.JS. </p>
+          I can develop and maintain a user interface, implement design, create tools that
+          improve site interaction regardless of the browser. I am skill in, but not only to,
+          HTML, CSS, JavaScript and Vue.JS.
+        </p>
       </div>
       <div class="skill-row">
         <img class="back-end-img" src="images/backend.png" alt="backend-img">
         <h3>Back-End Development</h3>
-        <p>I can create and maintain database, setup API's and making sure that they are communicating
-          with front-end. I can also utilize server-side language to add depth to the front-end language.
-          I can provide security to the overall application or website. I am fluent in SQL, Ruby and Ruby on Rails.
+        <p>I can create and maintain the database, configure APIs and make sure they communicate
+          with the front-end.I can use server-side language to add depth to the front-end language
+          as well.I am able to ensure the security of the entire application or website.My skills
+          are SQL, Ruby and Ruby on Rails.
         </p>
       </div>
-      <!-- <hr>
+      <hr>
       <div class="project-row">
         <img class="project-img" src="images/project.png" alt="project-img">
         <h3>Some projects</h3>
-      </div> -->
+        <hr>
+        <div id="game">
+          <h3>Monster Slayer</h3>
+          <section id="monster" class="container">
+            <h2>Monster Health</h2>
+            <div class="healthbar">
+              <div class="healthbar__value" :style="monsterBarStyles"></div>
+            </div>
+          </section>
+          <section id="player" class="container">
+            <h2>Your Health</h2>
+            <div class="healthbar">
+              <div class="healthbar__value" :style="playerBarStyles"></div>
+            </div>
+          </section>
+          <section class="container" v-if="winner">
+            <h2>Game Over!</h2>
+            <h3 v-if="winner === 'monster'">You died</h3>
+            <h3 v-else-if="winner === 'player'">You killed the monster</h3>
+            <h3 v-else="winner === 'draw'">You both died!</h3>
+            <button @click="startNewGame">Start New Game</button>
+          </section>
+          <section id="controls" v-else>
+            <button @click="attackMonster" class="action-btn">ATTACK</button>
+            <button :disabled="mayUseSpecialAttack" @click="specialAttackMonster" class="action-btn">SPECIAL ATTACK</button>
+            <button @click="healPlayer" class="action-btn">HEAL</button>
+            <button @click="surrender" class="action-btn">SURRENDER</button>
+          </section>
+          <section id="log" class="container">
+            <h2>Battle Log</h2>
+            <ul>
+              <li v-for="logMessage in logMessages">
+                <span :class="{'log--player': logMessage.actionBy === 'player', 'log--monster': logMessage.actionBy === 'monster'}">
+                  {{ logMessage.actionBy === 'player' ? 'Player' : 'Monster' }}</span>
+                <span v-if="logMessage.actionType === 'heal'"> heals himself for <span class="log--heal">{{ logMessage.actionValue }} </span></span>
+                <span v-else> attacks and deals <span class="log--damage">{{ logMessage.actionValue }} </span></span>
+            </ul>
+          </section>
+        </div>
+      </div>
     </div>
     <hr>
     <div class="contact-me">
@@ -64,8 +106,10 @@
   <div class="bottom-container">
     <a class="footer-link" href="https://www.linkedin.com/in/billyvd/">LinkedIn</a>
     <a class="footer-link" href="https://github.com/bvd86">Github</a>
-    <a class="footer-link" href="https://www.billyvd.com">Website</a>
+    <a class="footer-link" href="https://troopl.com/bvd86">Portfolio</a>
     <p>© 2022. Billy Veillette-Daigle</p>
   </div>
 </body>
+<script src="https://unpkg.com/vue@next" defer></script>
+<script src="JavaScript/monster-slayer.js" defer></script>
 </html>
