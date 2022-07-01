@@ -40,7 +40,6 @@ section {
 }
 
 button {
-  font: inherit;
   border: 1px solid #698ED5;
   background-color: #698ED5;
   color: white;
